@@ -39,6 +39,13 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            text-decoration: none; /* リンクの下線を消す */
+            color: inherit;
+            transition: 0.2s;
+        }
+
+        .video-item:hover {
+            opacity: 0.8; /* ホバー時に少し明るくしてクリック感を出す */
         }
 
         .thumbnail {
@@ -48,11 +55,12 @@
             background: #000;
         }
 
-        /* ビデオタグのスタイル調整 */
+        /* サムネイルとしてのビデオ（クリックは無効化してリンクを優先） */
         video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            pointer-events: none; 
         }
 
         .title {
@@ -62,7 +70,7 @@
             height: 3em;
             overflow: hidden;
             color: #ccc;
-            text-decoration: none;
+            display: block;
         }
 
         .ad-item {
@@ -88,32 +96,25 @@
 
     <div class="video-grid">
         
-        <div class="video-item">
+        <a href="watch.html" class="video-item">
             <div class="thumbnail">
-                <video controls playsinline preload="metadata">
+                <video preload="metadata">
                     <source src="RPReplay_Final1760849560.mov#t=0.5" type="video/quicktime">
                 </video>
             </div>
-            <a href="#" class="title">エロい女に中出し！！</a>
-        </div>
+            <span class="title">エロい女に中出し！！</span>
+        </a>
 
         <div class="video-item ad-item">
             <script src="https://adm.shinobi.jp/s/e4ebe0c3c99e2412efff862a0a5d534c"></script>
         </div>
 
-        <div class="video-item">
-            <a href="#" class="thumbnail">
+        <a href="#" class="video-item">
+            <div class="thumbnail">
                 <img src="https://via.placeholder.com/320x180/333/fff?text=Next+Video" style="width:100%; height:100%; object-fit:cover;">
-            </a>
-            <a href="#" class="title">タイトルが入ります。スマホで見やすいグリッド配置です。</a>
-        </div>
-
-        <div class="video-item">
-            <a href="#" class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Next+Video" style="width:100%; height:100%; object-fit:cover;">
-            </a>
-            <a href="#" class="title">最新のコンテンツをここに表示します。</a>
-        </div>
+            </div>
+            <span class="title">タイトルが入ります。スマホで見やすいグリッド配置です。</span>
+        </a>
 
     </div>
 </div>
