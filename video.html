@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Gallery - Adult Style</title>
     <style>
-        /* 成人用サイトで好まれるダークデザイン */
         body {
             background-color: #1a1a1a;
             color: #eeeeee;
@@ -29,6 +28,7 @@
 
         .video-grid {
             display: grid;
+            /* スマホで2列、PCで3〜4列に自動調整 */
             grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
             gap: 15px;
         }
@@ -39,13 +39,13 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            text-decoration: none; /* リンクの下線を消す */
+            text-decoration: none;
             color: inherit;
             transition: 0.2s;
         }
 
         .video-item:hover {
-            opacity: 0.8; /* ホバー時に少し明るくしてクリック感を出す */
+            opacity: 0.8;
         }
 
         .thumbnail {
@@ -55,11 +55,15 @@
             background: #000;
         }
 
-        /* サムネイルとしてのビデオ（クリックは無効化してリンクを優先） */
-        video {
+        video, img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
+        }
+
+        /* サムネイルのビデオはクリック無効 */
+        .thumbnail video {
             pointer-events: none; 
         }
 
@@ -78,7 +82,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 200px;
+            min-height: 150px;
             border: 1px solid #444;
         }
 
@@ -106,14 +110,49 @@
         </a>
 
         <div class="video-item ad-item">
-            
+            <script src="https://adm.shinobi.jp/s/e4ebe0c3c99e2412efff862a0a5d534c"></script>
         </div>
 
         <a href="#" class="video-item">
             <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Next+Video" style="width:100%; height:100%; object-fit:cover;">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+3">
             </div>
-            <span class="title">タイトルが入ります。スマホで見やすいグリッド配置です。</span>
+            <span class="title">ここに動画のタイトルが入ります。</span>
+        </a>
+
+        <a href="#" class="video-item">
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+4">
+            </div>
+            <span class="title">最新の投稿動画はこちら。</span>
+        </a>
+
+        <a href="#" class="video-item">
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+5">
+            </div>
+            <span class="title">おすすめの人気動画コンテンツ。</span>
+        </a>
+
+        <a href="#" class="video-item">
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+6">
+            </div>
+            <span class="title">スマホで見やすいレイアウト。</span>
+        </a>
+
+        <a href="#" class="video-item">
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+7">
+            </div>
+            <span class="title">素人投稿の激ヤバ動画！</span>
+        </a>
+
+        <a href="#" class="video-item">
+            <div class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+8">
+            </div>
+            <span class="title">クリックして再生ページへ移動。</span>
         </a>
 
     </div>
