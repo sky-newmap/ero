@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery - Adult Style</title>
+    <style>
+        /* 成人用サイトで好まれるダークデザイン */
+        body {
+            background-color: #1a1a1a;
+            color: #eeeeee;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            border-left: 4px solid #ffcc00;
+            padding-left: 10px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* ビデオと広告を並べるグリッド */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* スマホでも2列くらいになるサイズ */
+            gap: 15px;
+        }
+
+        /* 各アイテム（動画）の枠 */
+        .video-item {
+            background: #2a2a2a;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thumbnail {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+        }
+
+        .thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .time {
+            position: absolute;
+            bottom: 5px;
+            right: 5px;
+            background: rgba(0,0,0,0.8);
+            font-size: 11px;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .title {
+            padding: 8px;
+            font-size: 13px;
+            line-height: 1.4;
+            height: 3em;
+            overflow: hidden;
+            color: #ccc;
+            text-decoration: none;
+        }
+
+        /* 広告枠専用のスタイル */
+        .ad-item {
+            background: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 200px; /* 広告の高さに合わせて調整 */
+            border: 1px solid #444;
+        }
+
+        /* PCなど広い画面では3列〜4列に */
+        @media (min-width: 600px) {
+            .video-grid {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>新着動画</h2>
+
+    <div class="video-grid">
+        
+        <div class="video-item">
+            <a href="動画ページURL1" class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Thumb+1" alt="動画1">
+                <span class="time">15:40</span>
+            </a>
+            <a href="動画ページURL1" class="title">ここに動画のタイトルが入ります。2行程度で省略。</a>
+        </div>
+
+        <div class="video-item ad-item">
+            <script src="https://adm.shinobi.jp/s/e4ebe0c3c99e2412efff862a0a5d534c"></script>
+            </div>
+
+        <div class="video-item">
+            <a href="動画ページURL2" class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Thumb+2" alt="動画2">
+                <span class="time">08:20</span>
+            </a>
+            <a href="動画ページURL2" class="title">タイトルが入ります。スマホで見やすいグリッド配置です。</a>
+        </div>
+
+        <div class="video-item">
+            <a href="動画ページURL3" class="thumbnail">
+                <img src="https://via.placeholder.com/320x180/333/fff?text=Thumb+3" alt="動画3">
+                <span class="time">22:05</span>
+            </a>
+            <a href="動画ページURL3" class="title">最新のコンテンツをここに表示します。</a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
