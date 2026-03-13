@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Video Gallery - Adult Style</title>
+    <title>Video Gallery</title>
     <style>
         body {
             background-color: #1a1a1a;
             color: #eeeeee;
-            font-family: "Helvetica Neue", Arial, sans-serif;
+            font-family: sans-serif;
             margin: 0;
-            padding: 15px;
+            padding: 10px;
         }
 
         .container {
@@ -19,21 +19,28 @@
         }
 
         h2 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             border-left: 4px solid #ffcc00;
             padding-left: 10px;
-            margin-bottom: 20px;
-            color: #fff;
+            margin: 15px 0;
         }
 
+        /* グリッドの設定：高さの固定を解除 */
         .video-grid {
             display: grid;
-            /* スマホで2列、PCで3〜4列に自動調整 */
-            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            align-items: start; /* 上揃えにする */
         }
 
-        .video-item {
+        @media (min-width: 768px) {
+            .video-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        /* アイテムの枠：高さを固定しない */
+        .video-item, .ad-item {
             background: #2a2a2a;
             border-radius: 4px;
             overflow: hidden;
@@ -41,55 +48,45 @@
             flex-direction: column;
             text-decoration: none;
             color: inherit;
-            transition: 0.2s;
+            border: 1px solid #333;
+            height: auto; /* 高さを中身に合わせる */
         }
 
-        .video-item:hover {
-            opacity: 0.8;
-        }
-
-        .thumbnail {
+        /* 画像・動画のラップ：ここだけ16:9を維持 */
+        .thumb-wrap {
             position: relative;
             width: 100%;
             aspect-ratio: 16 / 9;
             background: #000;
+            overflow: hidden;
         }
 
-        video, img {
+        .thumb-wrap video, .thumb-wrap img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            display: block;
         }
 
-        /* サムネイルのビデオはクリック無効 */
-        .thumbnail video {
-            pointer-events: none; 
-        }
-
+        /* タイトル：隠れないようにする */
         .title {
-            padding: 8px;
+            padding: 10px 8px;
             font-size: 13px;
             line-height: 1.4;
-            height: 3em;
-            overflow: hidden;
             color: #ccc;
-            display: block;
+            word-break: break-all; /* 長い単語でも改行する */
+            min-height: 3em; /* 最低限の高さは確保して揃える */
         }
 
+        /* 広告がはみ出さないための魔法の呪文 */
         .ad-item {
-            background: #333;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 150px;
-            border: 1px solid #444;
+            min-height: 100px;
         }
-
-        @media (min-width: 600px) {
-            .video-grid {
-                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            }
+        
+        .ad-item script + * , .ad-item ins, .ad-item iframe {
+            max-width: 100% !important;
+            height: auto !important;
+            display: block !important;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -101,7 +98,7 @@
     <div class="video-grid">
         
         <a href="watch.html" class="video-item">
-            <div class="thumbnail">
+            <div class="thumb-wrap">
                 <video preload="metadata">
                     <source src="RPReplay_Final1760849560.mov#t=0.5" type="video/quicktime">
                 </video>
@@ -110,48 +107,39 @@
         </a>
 
         <div class="video-item ad-item">
-            <script src="https://adm.shinobi.jp/s/e4ebe0c3c99e2412efff862a0a5d534c"></script>
+            <div class="thumb-wrap" style="background: transparent; height: auto;">
+                <script src="https://adm.shinobi.jp/s/e4ebe0c3c99e2412efff862a0a5d534c"></script>
+            </div>
+            <span class="title" style="text-align:center; font-size:10px; min-height: auto;">ADVERTISEMENT</span>
         </div>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+3">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+3"></div>
             <span class="title">ここに動画のタイトルが入ります。</span>
         </a>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+4">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+4"></div>
             <span class="title">最新の投稿動画はこちら。</span>
         </a>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+5">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+5"></div>
             <span class="title">おすすめの人気動画コンテンツ。</span>
         </a>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+6">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+6"></div>
             <span class="title">スマホで見やすいレイアウト。</span>
         </a>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+7">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+7"></div>
             <span class="title">素人投稿の激ヤバ動画！</span>
         </a>
 
         <a href="#" class="video-item">
-            <div class="thumbnail">
-                <img src="https://via.placeholder.com/320x180/333/fff?text=Video+8">
-            </div>
+            <div class="thumb-wrap"><img src="https://via.placeholder.com/320x180/333/fff?text=Video+8"></div>
             <span class="title">クリックして再生ページへ移動。</span>
         </a>
 
